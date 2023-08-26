@@ -1,0 +1,13 @@
+com\example\joke\dto\JokeResponse.class
+com\example\joke\services\JokeService.class
+com\example\joke\services\ExternalApiService.class
+com\example\joke\client\ExternalApiClient.class
+com\example\joke\config\OpenApiConfig.class
+com\example\joke\controllers\advice\CustomExceptionHandler.class
+com\example\joke\exceptions\JokeApiException.class
+com\example\joke\controllers\SwaggerController.class
+com\example\joke\controllers\JokeController.class
+com\example\joke\dto\JokeDetail.class
+com\example\joke\JokeApplication.class
+com\example\joke\utils\AppConstants.class
+com\example\joke\config\FeignConfiguration.class

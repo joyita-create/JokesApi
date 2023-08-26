@@ -1,0 +1,13 @@
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\utils\AppConstants.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\dto\JokeResponse.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\services\ExternalApiService.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\controllers\JokeController.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\dto\JokeDetail.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\exceptions\JokeApiException.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\JokeApplication.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\controllers\SwaggerController.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\config\OpenApiConfig.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\services\JokeService.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\controllers\advice\CustomExceptionHandler.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\config\FeignConfiguration.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\client\ExternalApiClient.java
