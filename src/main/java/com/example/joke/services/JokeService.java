@@ -35,8 +35,7 @@ public class JokeService {
                 .filter(jokeDetail -> (jokeDetail.isSafe() && (!jokeDetail.getFlags().isExplicit() &&
                         !jokeDetail.getFlags().isSexist()))
                 )
-                .sorted(Comparator.comparing(jokeDetail -> jokeDetail.getRandomJoke().length()))
-                .findFirst();
+                .min(Comparator.comparing(jokeDetail -> jokeDetail.getRandomJoke().length()));
         if (joke.isEmpty()) {
             throw new JokeApiException(AppConstants.JOKE_NOT_FOUND, HttpStatus.NOT_FOUND);
         }
