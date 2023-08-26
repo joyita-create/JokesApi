@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Feign client for External joke API.
  */
 @FeignClient(value = "externalApiClient", url = "${api.externalapi.url}",
-        configuration = FeignConfiguration.class)
+        configuration = FeignConfiguration.class, path = "joke/Any")
 @Headers({"Content-Type: application/json"})
 public interface ExternalApiClient {
 

@@ -4,6 +4,7 @@ com\example\joke\services\ExternalApiService.class
 com\example\joke\client\ExternalApiClient.class
 com\example\joke\config\OpenApiConfig.class
 com\example\joke\controllers\advice\CustomExceptionHandler.class
+com\example\joke\dto\Flags.class
 com\example\joke\exceptions\JokeApiException.class
 com\example\joke\controllers\SwaggerController.class
 com\example\joke\controllers\JokeController.class

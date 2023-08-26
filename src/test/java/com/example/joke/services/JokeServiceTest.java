@@ -1,5 +1,6 @@
 package com.example.joke.services;
 
+import com.example.joke.dto.Flags;
 import com.example.joke.dto.JokeDetail;
 import com.example.joke.dto.JokeResponse;
 import com.example.joke.exceptions.JokeApiException;
@@ -18,7 +19,7 @@ import static com.example.joke.utils.AppConstants.JOKE_NOT_FOUND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-public class JokeServiceTest {
+ class JokeServiceTest {
 
     @Mock
     private ExternalApiService externalApiService;
@@ -27,13 +28,13 @@ public class JokeServiceTest {
     private JokeService jokeService;
 
     @BeforeEach
-    public void setUp() {
+     void setUp() {
 
         jokeService = new JokeService(externalApiService);
     }
 
     @Test
-    public void testGetJoke_whenExternalApiThrowsException_thenThrowException() throws JokeApiException {
+     void testGetJoke_whenExternalApiThrowsException_thenThrowException() throws JokeApiException {
         Mockito.when(externalApiService.getRandomJokes()).thenThrow(new JokeApiException());
         Assertions.assertThrows(JokeApiException.class,
                 () -> jokeService.getJoke());
@@ -41,10 +42,10 @@ public class JokeServiceTest {
     }
 
     @Test
-    public void testGetJoke_whenNoSafeJoke_thenReturnNotFoundException() throws JokeApiException {
+     void testGetJoke_whenNoSafeJoke_thenReturnNotFoundException() throws JokeApiException {
         JokeResponse jokeResponse = new JokeResponse();
         jokeResponse.setJokes(new ArrayList<>());
-        jokeResponse.getJokes().add(new JokeDetail("1", "Joke1", false));
+        jokeResponse.getJokes().add(new JokeDetail("1", "Joke1", false,new Flags()));
         Mockito.when(externalApiService.getRandomJokes()).thenReturn(jokeResponse);
         JokeApiException exception = Assertions.assertThrows(JokeApiException.class,
                 () -> jokeService.getJoke());
@@ -54,17 +55,20 @@ public class JokeServiceTest {
     }
 
     @Test
-    public void testGetJoke_whenMultipleJokes_thenReturnSafeJokeWithShortestText() throws JokeApiException {
+     void testGetJoke_whenMultipleJokes_thenReturnSafeJokeWithShortestText() throws JokeApiException {
         JokeResponse jokeResponse = new JokeResponse();
         jokeResponse.setJokes(new ArrayList<>());
-        jokeResponse.getJokes().add(new JokeDetail("1", "Joke1", false));
-        jokeResponse.getJokes().add(new JokeDetail("2", "Joke123", true));
-        jokeResponse.getJokes().add(new JokeDetail("3", "Joke12345", true));
+        jokeResponse.getJokes().add(new JokeDetail("1", "Joke1", false,new Flags()));
+        Flags flag = new Flags();
+        flag.setExplicit(true);
+        jokeResponse.getJokes().add(new JokeDetail("2", "Joke123", true,flag));
+        jokeResponse.getJokes().add(new JokeDetail("3", "Joke12345", true,new Flags()));
+        jokeResponse.getJokes().add(new JokeDetail("4", "Jokes123", true,new Flags()));
 
         Mockito.when(externalApiService.getRandomJokes()).thenReturn(jokeResponse);
         org.assertj.core.api.Assertions.assertThat(jokeService.getJoke())
-                .hasFieldOrPropertyWithValue("joke", "Joke123")
-                .hasFieldOrPropertyWithValue("id", "2");
+                .hasFieldOrPropertyWithValue("randomJoke", "Jokes123")
+                .hasFieldOrPropertyWithValue("id", "4");
     }
 
 

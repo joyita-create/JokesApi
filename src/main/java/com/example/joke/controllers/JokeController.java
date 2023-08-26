@@ -1,7 +1,6 @@
 package com.example.joke.controllers;
 
 import com.example.joke.dto.JokeDetail;
-import com.example.joke.dto.JokeResponse;
 import com.example.joke.exceptions.JokeApiException;
 import com.example.joke.services.JokeService;
 import lombok.AllArgsConstructor;

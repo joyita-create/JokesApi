@@ -20,24 +20,23 @@ class JokeControllerTest {
     JokeService jokeService;
 
     private MockMvc mockMvc;
-    private JokeController jokeController;
 
     @BeforeEach
-    public void setUp() {
-        jokeController = new JokeController(jokeService);
+     void setUp() {
+        JokeController jokeController = new JokeController(jokeService);
         mockMvc = MockMvcBuilders.standaloneSetup(jokeController)
                 .build();
     }
 
     @Test
-    public void testGetRandomJoke_invalidUrl_returnsNotFound() throws Exception {
+     void testGetRandomJoke_invalidUrl_returnsNotFound() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/jokes");
         mockMvc.perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
-    public void testGetRandomJoke_invalidUrl_returnsValidResponse() throws Exception {
+     void testGetRandomJoke_invalidUrl_returnsValidResponse() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/jokes/");
         mockMvc.perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk());

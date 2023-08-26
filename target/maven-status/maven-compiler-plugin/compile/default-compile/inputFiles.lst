@@ -8,6 +8,7 @@ C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\JokeApplication
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\controllers\SwaggerController.java
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\config\OpenApiConfig.java
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\services\JokeService.java
+C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\dto\Flags.java
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\controllers\advice\CustomExceptionHandler.java
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\config\FeignConfiguration.java
 C:\Users\zengo\Workplace\JokesApi\src\main\java\com\example\joke\client\ExternalApiClient.java
