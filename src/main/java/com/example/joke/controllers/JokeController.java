@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The type Joke controller.
+ */
 @RestController
 @RequestMapping(path = "/jokes")
 @AllArgsConstructor
 /**
- JokeController for movie resource.
+ JokeController for Joke resource.
  */
 public class JokeController {
 
@@ -20,6 +23,12 @@ public class JokeController {
     private JokeService jokeService;
 
 
+    /**
+     * Gets random joke.
+     *
+     * @return the random joke
+     * @throws JokeApiException the joke api exception
+     */
     @GetMapping(path = "/")
     public JokeDetail getRandomJoke() throws JokeApiException {
         return (jokeService.getJoke());

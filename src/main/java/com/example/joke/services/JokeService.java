@@ -12,8 +12,7 @@ import java.util.Comparator;
 import java.util.Optional;
 
 /**
- * JokeService
- * Contains all the Business logic regarding Movie.
+ * The type Joke service.
  */
 @Slf4j
 @Service
@@ -23,11 +22,22 @@ public class JokeService {
 
     private final ExternalApiService externalApiService;
 
+    /**
+     * Instantiates a new Joke service.
+     *
+     * @param externalApiService the external api service
+     */
     public JokeService(ExternalApiService externalApiService) {
         this.externalApiService = externalApiService;
     }
 
 
+    /**
+     * Gets the shortest joke which is safe to display.
+     *
+     * @return the joke
+     * @throws JokeApiException the joke api exception
+     */
     public JokeDetail getJoke() throws JokeApiException {
         Optional<JokeDetail> joke = Optional.ofNullable(externalApiService.getRandomJokes().getJokes())
                 .orElse(new ArrayList<>())

@@ -9,17 +9,31 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type External api service.
+ */
 @Slf4j
 @Service
 public class ExternalApiService {
 
     private final ExternalApiClient externalApiClient;
 
+    /**
+     * Instantiates a new External api service.
+     *
+     * @param externalApiClient the external api client
+     */
     public ExternalApiService(ExternalApiClient externalApiClient) {
         this.externalApiClient = externalApiClient;
     }
 
 
+    /**
+     * Gets random jokes from external service.
+     *
+     * @return instance of {@link JokeResponse}
+     * @throws JokeApiException the joke api exception
+     */
     public JokeResponse getRandomJokes() throws JokeApiException {
         try {
             ResponseEntity<JokeResponse> response = externalApiClient.getJokes("16", "single");
